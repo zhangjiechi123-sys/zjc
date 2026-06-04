@@ -25,6 +25,7 @@ export type RecommendationRow = {
   type: string;
   content: string;
   difficulty: string;
+  created_at?: string;
 };
 
 export type AssessmentSubmitInput = {
