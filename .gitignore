@@ -1,0 +1,8 @@
+node_modules/
+.tools/
+dist-renderer/
+dist-electron/
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db

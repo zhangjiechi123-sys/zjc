@@ -1,0 +1,1155 @@
+:root {
+  color: #182233;
+  background: #eef2f7;
+  font-family:
+    "Microsoft YaHei",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 1180px;
+  background: #eef2f7;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.62;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 22px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.eyebrow {
+  color: #607089;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  margin-top: 4px;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+.mode-switch {
+  display: inline-flex;
+  gap: 6px;
+  padding: 5px;
+  border-radius: 8px;
+  background: #dfe7f1;
+}
+
+.mode-switch button,
+.sim-actions button,
+.task-row button,
+.form-row button,
+.reset-demo,
+.download-button,
+.primary-action,
+.resource-card button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  border-radius: 7px;
+  padding: 0 13px;
+  background: #ffffff;
+  color: #26364d;
+  box-shadow: inset 0 0 0 1px #ccd6e4;
+}
+
+.mode-switch button.active,
+.primary-action,
+.download-button {
+  background: #245fc6;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(720px, 1fr) 430px;
+  gap: 18px;
+  align-items: start;
+}
+
+.sim-column,
+.learning-column {
+  display: grid;
+  gap: 14px;
+  max-height: calc(100vh - 126px);
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.panel {
+  border: 1px solid #d7e0ec;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 40px rgba(41, 56, 77, 0.08);
+}
+
+.toolbar-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 16px;
+}
+
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #526277;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+select,
+input,
+textarea {
+  min-height: 36px;
+  border: 1px solid #cbd6e5;
+  border-radius: 7px;
+  padding: 0 10px;
+  background: #fbfcff;
+  color: #1d2b3e;
+}
+
+.sim-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle input {
+  accent-color: #245fc6;
+}
+
+.sim-board {
+  min-height: 580px;
+  border: 1px solid #ced9e8;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 78% 42%, rgba(61, 123, 216, 0.08), transparent 34%),
+    linear-gradient(90deg, rgba(72, 92, 122, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(72, 92, 122, 0.045) 1px, transparent 1px),
+    #f8fbff;
+  background-size: 28px 28px;
+  overflow: hidden;
+}
+
+.system-svg {
+  display: block;
+  width: 100%;
+  height: 580px;
+}
+
+.chassis-outline {
+  fill: rgba(232, 240, 249, 0.82);
+  stroke: #8aa1bf;
+  stroke-width: 3.5;
+}
+
+.chassis-nose {
+  fill: none;
+  stroke: #9fb1c8;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 10 8;
+}
+
+.chassis-center,
+.front-subframe,
+.rear-subframe {
+  fill: none;
+  stroke: #c6d4e3;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  opacity: 0.72;
+}
+
+.front-subframe,
+.rear-subframe {
+  stroke: #5c6f86;
+  stroke-width: 6;
+  opacity: 0.62;
+}
+
+.icon-node {
+  cursor: pointer;
+  outline: none;
+}
+
+.icon-node text {
+  fill: #162236;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.icon-node .physical-shell,
+.icon-node .host-lid,
+.icon-node .ecu-body,
+.icon-node .motor-body,
+.icon-node .wheel {
+  filter: drop-shadow(0 10px 16px rgba(32, 48, 72, 0.16));
+}
+
+.icon-node:hover .physical-shell,
+.icon-node.selected .physical-shell,
+.icon-node:hover .host-lid,
+.icon-node.selected .host-lid,
+.icon-node:hover .ecu-body,
+.icon-node.selected .ecu-body,
+.icon-node:hover .motor-body,
+.icon-node.selected .motor-body {
+  stroke: #245fc6;
+  stroke-width: 4;
+}
+
+.icon-node.selected text {
+  fill: #245fc6;
+}
+
+.physical-shell {
+  stroke: #6f839b;
+  stroke-width: 3;
+}
+
+.host-lid {
+  fill: #d8e2ee;
+  stroke: #60758e;
+  stroke-width: 3;
+}
+
+.screen-fill {
+  fill: #17283c;
+  stroke: #0f1b2a;
+  stroke-width: 2;
+}
+
+.screen-line {
+  fill: none;
+  stroke: #7cc4ff;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.host-keyboard {
+  fill: #aebdce;
+  stroke: #6f839b;
+  stroke-width: 2;
+}
+
+.keyboard-line {
+  fill: none;
+  stroke: #6f839b;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.harness-shadow {
+  fill: rgba(28, 45, 66, 0.05);
+  stroke: rgba(28, 45, 66, 0.14);
+  stroke-width: 3;
+}
+
+.can-wire {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.can-wire-a {
+  stroke: #2d6cdf;
+}
+
+.can-wire-b {
+  stroke: #30a46c;
+}
+
+.can-wire-ground {
+  stroke: #46576c;
+  stroke-width: 4;
+}
+
+.connector-dot {
+  fill: #f5c84c;
+  stroke: #6f5a16;
+  stroke-width: 2;
+}
+
+.connector-shell {
+  fill: #2d3a4b;
+  stroke: #172333;
+  stroke-width: 3;
+}
+
+.ecu-body {
+  fill: #c9d1da;
+  stroke: #6f7d8b;
+  stroke-width: 3;
+}
+
+.vcu-body {
+  fill: #cfd6dc;
+}
+
+.steering-ecu-body {
+  fill: #d5daf0;
+}
+
+.cooling-ribs {
+  fill: none;
+  stroke: rgba(76, 89, 104, 0.55);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.controller-ribs {
+  stroke: rgba(83, 92, 133, 0.58);
+}
+
+.ecu-connector {
+  fill: #172333;
+  stroke: #0d1622;
+  stroke-width: 3;
+}
+
+.ecu-small-text {
+  fill: #1b2a3f;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.pin-line {
+  fill: none;
+  stroke: #6f839b;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.motor-body {
+  fill: #b9c1c8;
+  stroke: #65717d;
+  stroke-width: 3;
+}
+
+.motor-cap {
+  fill: #697583;
+  stroke: #3c4652;
+  stroke-width: 3;
+}
+
+.motor-nose {
+  fill: #d6dce2;
+  stroke: #65717d;
+  stroke-width: 3;
+}
+
+.motor-shaft,
+.motor-mount,
+.steering-rack {
+  fill: none;
+  stroke: #33445c;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.steering-rack {
+  stroke-width: 6;
+}
+
+.rear-wheel {
+  fill: #27384d;
+  stroke: #101923;
+  stroke-width: 3;
+  filter: drop-shadow(0 8px 12px rgba(32, 48, 72, 0.16));
+}
+
+.rear-wheel-line {
+  stroke: #f6d65d;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.motor-ribs {
+  fill: none;
+  stroke: rgba(71, 83, 95, 0.62);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.shaft-tip {
+  fill: #3f4b58;
+  stroke: #202a35;
+  stroke-width: 2;
+}
+
+.icon-stroke {
+  fill: none;
+  stroke: #23344c;
+  stroke-width: 6;
+  stroke-linejoin: round;
+}
+
+.icon-line {
+  fill: none;
+  stroke: #23344c;
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-fill {
+  fill: #23344c;
+}
+
+.live-readout text {
+  fill: #254365;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.module {
+  stroke-width: 2;
+}
+
+.module-host {
+  fill: #e8f2ff;
+  stroke: #4a86d9;
+}
+
+.module-can {
+  fill: #f3f8ed;
+  stroke: #78a846;
+}
+
+.module-vcu {
+  fill: #fff5df;
+  stroke: #d49427;
+}
+
+.module-controller {
+  fill: #eef1ff;
+  stroke: #6675d9;
+}
+
+.module-motor {
+  fill: #fff0ef;
+  stroke: #ce675d;
+}
+
+.module-title {
+  fill: #1b2a3f;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.module-value {
+  fill: #245fc6;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.module-note {
+  fill: #526277;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.flow {
+  fill: none;
+  stroke: #99a8ba;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  opacity: 0.5;
+}
+
+.feedback-flow {
+  fill: none;
+  stroke: #30a46c;
+  stroke-width: 3.4;
+  stroke-linecap: round;
+  stroke-dasharray: 7 10;
+  opacity: 0.78;
+}
+
+.flow.active {
+  stroke: #2d6cdf;
+  opacity: 1;
+  stroke-dasharray: 7 9;
+  animation: flow 1s linear infinite;
+}
+
+.tie-rod,
+.axle {
+  stroke: #33445c;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.axle {
+  stroke-width: 3;
+  opacity: 0.55;
+}
+
+.wheel {
+  fill: #28384d;
+  stroke: #101923;
+  stroke-width: 2;
+}
+
+.wheel-line {
+  stroke: #f6d65d;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.control-panel {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 18px;
+  padding: 18px;
+  align-items: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+}
+
+.control-panel p {
+  margin-top: 8px;
+  color: #627188;
+  line-height: 1.55;
+}
+
+.steering-console {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border-radius: 8px;
+  padding: 16px;
+  background: #f2f6fb;
+  box-shadow: inset 0 0 0 1px #dce6f1;
+}
+
+.wheel-dial {
+  position: relative;
+  flex: 0 0 auto;
+  width: 116px;
+  height: 116px;
+  border: 12px solid #223249;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #f8fbff 0 42%, #dfe8f2 43% 100%);
+  transition: transform 120ms ease-out;
+  box-shadow: 0 10px 22px rgba(34, 50, 73, 0.18);
+}
+
+.wheel-spoke {
+  position: absolute;
+  top: 47px;
+  left: 18px;
+  width: 58px;
+  height: 10px;
+  border-radius: 999px;
+  background: #27364a;
+  transform-origin: 40px 5px;
+}
+
+.wheel-spoke::before,
+.wheel-spoke::after {
+  content: "";
+  position: absolute;
+  left: 40px;
+  width: 10px;
+  height: 42px;
+  border-radius: 999px;
+  background: #27364a;
+  transform-origin: 5px 5px;
+}
+
+.wheel-spoke::before {
+  transform: rotate(115deg);
+}
+
+.wheel-spoke::after {
+  transform: rotate(245deg);
+}
+
+.slider-block {
+  flex: 1;
+  min-width: 280px;
+}
+
+.slider-block input {
+  width: 100%;
+  accent-color: #245fc6;
+}
+
+.slider-block input[type="range"] {
+  height: 28px;
+}
+
+.readouts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.readouts span,
+.metric,
+.weak-topic {
+  border-radius: 7px;
+  padding: 10px 12px;
+  background: #edf4fc;
+  color: #26364d;
+  font-weight: 800;
+  box-shadow: inset 0 0 0 1px #dbe6f2;
+}
+
+.assessment-panel,
+.class-summary,
+.roster-panel,
+.student-detail,
+.manage-panel {
+  padding: 16px;
+}
+
+.learning-module {
+  padding: 15px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+}
+
+.module-header {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 11px;
+  align-items: start;
+  margin-bottom: 13px;
+}
+
+.module-header p {
+  margin-top: 4px;
+  color: #627188;
+  line-height: 1.45;
+}
+
+.module-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 7px;
+  background: #245fc6;
+  color: #ffffff;
+  font-weight: 900;
+  box-shadow: 0 6px 14px rgba(36, 95, 198, 0.24);
+}
+
+.module-detail-card {
+  display: grid;
+  gap: 10px;
+  border-radius: 8px;
+  padding: 13px;
+  background: #f5f8fc;
+  box-shadow: inset 0 0 0 1px #dce5ef;
+}
+
+.module-detail-card h3 {
+  font-size: 18px;
+}
+
+.module-detail-card dl {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 8px 10px;
+  margin: 0;
+}
+
+.module-detail-card dt {
+  color: #245fc6;
+  font-weight: 900;
+}
+
+.module-detail-card dd {
+  margin: 0;
+  color: #3a4d66;
+  line-height: 1.48;
+}
+
+.operation-status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.status-note {
+  margin-top: 10px;
+  border-radius: 7px;
+  padding: 10px 12px;
+  background: #fff7e8;
+  color: #805300;
+  font-weight: 900;
+}
+
+.can-table {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.can-table div {
+  display: grid;
+  gap: 3px;
+  border-radius: 7px;
+  padding: 9px 10px;
+  background: #eef4fb;
+}
+
+.can-table span {
+  color: #65758b;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.can-table strong {
+  color: #182233;
+  font-size: 16px;
+}
+
+.can-frame {
+  margin-top: 10px;
+  border-radius: 7px;
+  padding: 10px 11px;
+  background: #152033;
+  color: #a6e3b9;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.can-frame.warning {
+  color: #ffd6a6;
+}
+
+.evaluation-panel {
+  margin-top: 16px;
+  border-top: 1px solid #e0e7f0;
+  padding-top: 14px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 13px;
+}
+
+.quiz-list {
+  display: grid;
+  gap: 11px;
+  max-height: 430px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.quiz-item {
+  border: 1px solid #e1e7f0;
+  border-radius: 8px;
+  padding: 11px;
+  background: #fbfdff;
+}
+
+.question-topic {
+  display: inline-flex;
+  margin-bottom: 7px;
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: #e9f2ff;
+  color: #245fc6;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.quiz-item p {
+  color: #26364d;
+  line-height: 1.45;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 7px;
+  margin-top: 9px;
+}
+
+.option {
+  min-height: 34px;
+  border-radius: 7px;
+  background: #eef3f8;
+  color: #2d3f57;
+  box-shadow: inset 0 0 0 1px #d5dfeb;
+}
+
+.option.selected {
+  background: #245fc6;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.task-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.task-row {
+  display: grid;
+  grid-template-columns: 1fr 118px;
+  gap: 8px;
+  align-items: center;
+  border-radius: 7px;
+  padding: 8px;
+  background: #f5f8fc;
+}
+
+.task-row span {
+  color: #344760;
+  line-height: 1.4;
+}
+
+.primary-action {
+  width: 100%;
+  margin-top: 14px;
+  min-height: 42px;
+  font-weight: 800;
+}
+
+.score-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.metric {
+  display: grid;
+  gap: 4px;
+}
+
+.metric span {
+  color: #607089;
+  font-size: 12px;
+}
+
+.metric strong {
+  color: #162236;
+  font-size: 20px;
+}
+
+.radar {
+  display: block;
+  width: 100%;
+  height: 230px;
+  margin: 8px auto 2px;
+}
+
+.radar-grid {
+  fill: none;
+  stroke: #cbd8e6;
+  stroke-width: 1;
+}
+
+.radar-axis {
+  stroke: #d8e1ec;
+  stroke-width: 1;
+}
+
+.radar-fill {
+  fill: rgba(36, 95, 198, 0.25);
+  stroke: #245fc6;
+  stroke-width: 2;
+}
+
+.radar-label {
+  fill: #3b4d66;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.weak-topic {
+  margin-top: 6px;
+  line-height: 1.45;
+}
+
+.resource-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.resource-card {
+  display: grid;
+  grid-template-columns: 1fr 86px;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid #dce4ef;
+  border-radius: 8px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+.resource-card.done {
+  background: #f2f8f0;
+}
+
+.resource-card h3 {
+  margin-top: 7px;
+}
+
+.resource-card p {
+  margin: 6px 0;
+  color: #56677f;
+  line-height: 1.45;
+}
+
+.resource-card small {
+  color: #7a8798;
+}
+
+.badge,
+.topic-tags span {
+  display: inline-flex;
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: #edf3fb;
+  color: #2d5ca8;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.empty-state {
+  border: 1px dashed #cbd6e5;
+  border-radius: 8px;
+  padding: 18px;
+  color: #718098;
+  text-align: center;
+  background: #fbfdff;
+}
+
+.teacher-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.85fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.dashboard-hero {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) 150px;
+  gap: 12px;
+  padding: 16px;
+  align-items: center;
+}
+
+.class-summary,
+.roster-panel,
+.student-detail,
+.manage-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.class-card {
+  display: grid;
+  gap: 10px;
+  border: 1px solid #dce4ef;
+  border-radius: 8px;
+  padding: 13px;
+  background: #fbfdff;
+}
+
+.class-card p,
+.detail-heading p,
+.student-row small {
+  color: #65758b;
+}
+
+.bar-group {
+  display: grid;
+  gap: 8px;
+}
+
+.progress-row {
+  display: grid;
+  grid-template-columns: 54px 1fr 44px;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+  color: #526277;
+}
+
+.progress-track {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e1e8f1;
+}
+
+.progress-track div {
+  height: 100%;
+  border-radius: inherit;
+  background: #3d7bd8;
+}
+
+.topic-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.roster {
+  display: grid;
+  gap: 8px;
+  max-height: 360px;
+  overflow: auto;
+}
+
+.student-row {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  border-radius: 7px;
+  padding: 10px 12px;
+  background: #f4f7fb;
+  color: #26364d;
+  text-align: left;
+  box-shadow: inset 0 0 0 1px #dce4ef;
+}
+
+.student-row.active {
+  background: #e8f1ff;
+  box-shadow: inset 0 0 0 2px #3d7bd8;
+}
+
+.detail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.history-list {
+  display: grid;
+  gap: 8px;
+}
+
+.history-row {
+  display: grid;
+  grid-template-columns: 150px 70px 1fr;
+  gap: 10px;
+  align-items: center;
+  border-radius: 7px;
+  padding: 10px;
+  background: #f5f8fc;
+}
+
+.history-row small,
+.history-row span {
+  color: #63738a;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.form-row.three {
+  grid-template-columns: 170px 1fr 1fr auto;
+}
+
+.csv-preview {
+  width: 100%;
+  min-height: 150px;
+  padding: 10px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.reset-demo {
+  justify-self: start;
+  color: #9b2f2f;
+  background: #fff2f2;
+  box-shadow: inset 0 0 0 1px #efcaca;
+}
+
+@media (max-width: 1240px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .learning-column {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
